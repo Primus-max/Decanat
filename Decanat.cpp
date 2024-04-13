@@ -26,6 +26,8 @@ int main()
     //cout << "Средний балл студента :" << gradeAvg(student) << endl;
 
     Student createdStudent;
+    int STUDENT_COUNT = 0;
+    Student* students = new Student[STUDENT_COUNT];
 
     // 2 задание
     while (true)
@@ -42,7 +44,9 @@ int main()
             int choice;
             cin >> choice;
             if (choice == 1) 
-                rateStudent(createdStudent);            
+                rateStudent(createdStudent); 
+            addStudent(students, STUDENT_COUNT, createdStudent);
+            printStudents(students, STUDENT_COUNT);
             break;
         case 2:
             rateStudent(createdStudent);
@@ -60,7 +64,7 @@ int main()
             cout << "Неправильный ввод. Попробуйте снова." << endl;
         }
 
-
+        
         
     }
     

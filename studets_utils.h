@@ -47,10 +47,27 @@ void printStudentInfo(const Student& student) {
     cout << "Отчество: " << student.MiddleName << endl;
     cout << "Фамилия: " << student.LastName << endl;
     cout << "Оценки:" << endl;
-    for (int i = 0; i < 10; ++i) {
-        cout << subjectNames[i] << ": " << static_cast<int>(student.subjects[i].grade) << endl;
+    for (int i = 0; i < SUBJECT_COUNT; ++i) {
+        cout << subjectNames[i] << ": ";
+        // Проверяем, чтобы было не пустое имя предмета перед его печатью
+        if (strlen(subjectNames[i]) > 0) {
+            cout << static_cast<int>(student.subjects[i].grade) << endl;
+        }
+        else {
+            cout << "Нет данных" << endl;
+        }
     }
 }
+
+void printStudents(const Student* students, int count) {
+    for (int i = 0; i < count; ++i) {
+        cout << "Студент #" << i + 1 << ":" << endl;
+        printStudentInfo(students[i]);
+        cout << endl;
+    }
+}
+
+
 float gradeAvg(const Student& student) {
     float avg = 0;
 
@@ -73,6 +90,21 @@ Student createStudent() {
     return newStudent;
 }
 
+void addStudent(Student*& students, int& studentCount, const Student& student) {
+
+    Student* temp = new Student[studentCount + 1];
+
+    for (size_t i = 0; i < studentCount; i++)
+        temp[i] = students[i];
+
+    temp[studentCount] = student;
+    ++studentCount;
+
+    delete[] students;
+
+    students = temp;
+}
+
 
 void rateStudent(Student& student) {
     for (int i = 0; i < SUBJECT_COUNT; ++i) {
@@ -82,11 +114,6 @@ void rateStudent(Student& student) {
         student.subjects[i].grade = grade; 
     }
 }
-
-
-
-
-
 
 
 // Цвета текста для консоли
