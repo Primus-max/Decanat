@@ -25,12 +25,38 @@ int main()
     //printStudentInfo(student);    
     //cout << "Средний балл студента :" << gradeAvg(student) << endl;
 
+    Student createdStudent;
+
     // 2 задание
     while (true)
     {
-        printMenu();
+        printMenu();        
+        
+        int choice;
+        cin >> choice;
 
-        Student createdStudent = createStudent();
+        switch (choice) {
+        case 1:
+            createdStudent = createStudent();
+            break;
+        case 2:
+            rateStudent(createdStudent);
+            break;
+        case 3:
+            //listStudents();
+            break;
+        case 4:
+            //printStudentGrades();
+            break;
+        case 5:
+            //printDebtors();
+            break;
+        default:
+            cout << "Неправильный ввод. Попробуйте снова." << endl;
+        }
+
+
+        
     }
     
 }

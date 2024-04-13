@@ -63,15 +63,31 @@ float gradeAvg(const Student& student) {
 Student createStudent() {
     Student newStudent;
 
-    cout << "Имя студента : ";
-    cin >> newStudent.FirstName;
     cout << "Фамилия студента : ";
     cin >> newStudent.LastName;
+    cout << "Имя студента : ";
+    cin >> newStudent.FirstName;  
     cout << "Отчество студента : ";
     cin >> newStudent.MiddleName;
 
     return newStudent;
 }
+
+
+void rateStudent(Student& student) {
+    for (int i = 0; i < SUBJECT_COUNT; ++i) {
+        cout  << subjectNames[i] << " : ";
+        int grade;
+        cin >> grade; 
+        student.subjects[i].grade = grade; 
+    }
+}
+
+
+
+
+
+
 
 // Цвета текста для консоли
 constexpr auto RESET = "\033[0m"      /* Дефолт */;
