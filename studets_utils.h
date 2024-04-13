@@ -72,3 +72,17 @@ Student createStudent() {
 
     return newStudent;
 }
+
+// Цвета текста для консоли
+constexpr auto RESET = "\033[0m"      /* Дефолт */;
+constexpr auto YELLOW = "\033[33m";     /* Жёлтый */;
+
+void printMenu() {
+    cout << YELLOW;
+    cout << "Для добавления студента, нажмите 1" << endl;
+    cout << "Для проставления оценок студенту, нажмите 2" << endl;
+    cout << "Для вывода списка студентов, нажмите 3" << endl;
+    cout << "Для вывода оценок выбранного студента, нажмите 4" << endl;
+    cout << "Для вывода должников, нажмите 5" << endl;
+    cout << RESET; 
+}

@@ -26,5 +26,11 @@ int main()
     //cout << "Средний балл студента :" << gradeAvg(student) << endl;
 
     // 2 задание
-    Student createdStudent =  createStudent();
+    while (true)
+    {
+        printMenu();
+
+        Student createdStudent = createStudent();
+    }
+    
 }
