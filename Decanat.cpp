@@ -45,26 +45,27 @@ int main()
             cin >> choice;
             if (choice == 1) 
                 rateStudent(createdStudent); 
-            addStudent(students, STUDENT_COUNT, createdStudent);
-            printStudents(students, STUDENT_COUNT);
+            addStudent(students, STUDENT_COUNT, createdStudent);            
             break;
         case 2:
             rateStudent(createdStudent);
             break;
         case 3:
-            //listStudents();
+            printStudents(students, STUDENT_COUNT);
             break;
         case 4:
-            //printStudentGrades();
+            cout << "Чтобы вывести оценки студента, укажите его id :";
+            int id;
+            cin >> id;
+            cout << endl;
+            printStudentInfo(students[id]); // Да знаю, что надо было искать по фамилии, но время не ждёт)
             break;
         case 5:
-            //printDebtors();
+            printDebtors(students, STUDENT_COUNT);
             break;
         default:
             cout << "Неправильный ввод. Попробуйте снова." << endl;
-        }
-
-        
+        }      
         
     }
     

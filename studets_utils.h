@@ -45,9 +45,9 @@ struct Student {
 
 
 void printStudentInfo(const Student& student) {
-    cout << "Имя: " << student.FirstName << endl;
-    cout << "Отчество: " << student.MiddleName << endl;
     cout << "Фамилия: " << student.LastName << endl;
+    cout << "Имя: " << student.FirstName << endl;
+    cout << "Отчество: " << student.MiddleName << endl;    
     cout << "Оценки:" << endl;
     for (int i = 0; i < SUBJECT_COUNT; ++i) {
         cout << subjectNames[i] << ": ";
@@ -115,6 +115,22 @@ void rateStudent(Student& student) {
         int grade;
         cin >> grade; 
         student.subjects[i].grade = grade; 
+    }
+}
+
+
+void printDebtors(const Student* students, int studentCount) {
+    cout << "Студенты с задолженностями: " << endl;
+    for (int i = 0; i < studentCount; ++i) {
+        bool hasDebt = false;
+        
+        for (int j = 0; j < SUBJECT_COUNT; ++j) {
+            if (students[i].subjects[j].grade == 2) {
+                cout << "Студент: " << students[i].LastName << " " << "задолженность по предмету : " << subjectNames[j] << endl;
+                hasDebt = true;                
+            }
+        }       
+        cout << endl;
     }
 }
 
