@@ -34,9 +34,9 @@ const char* subjectNames[] = {
 };
 
 struct Student {
-    char FirstName[20];
-    char MiddleName[20];
     char LastName[20];
+    char FirstName[20];
+    char MiddleName[20];    
 
     Subject subjects[SUBJECT_COUNT];
 };
@@ -58,4 +58,17 @@ float gradeAvg(const Student& student) {
         avg += student.subjects[i].grade;
 
     return avg / SUBJECT_COUNT;
+}
+
+Student createStudent() {
+    Student newStudent;
+
+    cout << "Имя студента : ";
+    cin >> newStudent.FirstName;
+    cout << "Фамилия студента : ";
+    cin >> newStudent.LastName;
+    cout << "Отчество студента : ";
+    cin >> newStudent.MiddleName;
+
+    return newStudent;
 }
