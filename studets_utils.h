@@ -34,6 +34,8 @@ const char* subjectNames[] = {
 };
 
 struct Student {
+    
+    int id;
     char LastName[20];
     char FirstName[20];
     char MiddleName[20];    
@@ -90,13 +92,14 @@ Student createStudent() {
     return newStudent;
 }
 
-void addStudent(Student*& students, int& studentCount, const Student& student) {
+void addStudent(Student*& students, int& studentCount,  Student& student) {
 
     Student* temp = new Student[studentCount + 1];
 
     for (size_t i = 0; i < studentCount; i++)
         temp[i] = students[i];
 
+    student.id = studentCount;
     temp[studentCount] = student;
     ++studentCount;
 
