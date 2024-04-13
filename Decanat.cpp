@@ -38,6 +38,11 @@ int main()
         switch (choice) {
         case 1:
             createdStudent = createStudent();
+            cout << "Хотите проставить оценки для этого студента? (1 - Да, 0 - Нет): ";
+            int choice;
+            cin >> choice;
+            if (choice == 1) 
+                rateStudent(createdStudent);            
             break;
         case 2:
             rateStudent(createdStudent);
