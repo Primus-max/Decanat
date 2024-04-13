@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 using namespace std;
 
 struct Subject {
@@ -29,7 +30,7 @@ const char* subjectNames[] = {
     "Биология",
     "Химия",
     "Информатика",
-    "Исскуство"
+    "Искусство"
 };
 
 struct Student {
@@ -50,7 +51,11 @@ void printStudentInfo(const Student& student) {
         cout << subjectNames[i] << ": " << static_cast<int>(student.subjects[i].grade) << endl;
     }
 }
+float gradeAvg(const Student& student) {
+    float avg = 0;
 
-int gradeAvg(const Student& student) {
+    for (int i = 0; i < 10; ++i) 
+        avg += student.subjects[i].grade;
 
+    return avg / SUBJECT_COUNT;
 }
